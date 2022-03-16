@@ -2,26 +2,26 @@ import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybo
 
 import { CommonModule } from '@angular/common';
 
-import { TaskListComponent } from './task-list.component';
+import { PureTaskListComponent } from './pure-task-list.component';
 import { TaskComponent } from './task.component';
 
 import * as TaskStories from './task.stories';
 
 export default {
-  component: TaskListComponent,
+  component: PureTaskListComponent,
   decorators: [
     moduleMetadata({
       //👇 Importa ambos componentes para permitir la composición de componentes con Storybook
-      declarations: [TaskListComponent, TaskComponent],
+      declarations: [PureTaskListComponent, TaskComponent],
       imports: [CommonModule],
     }),
     //👇 Envuelve nuestras historias con un decorador
     componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
   ],
-  title: 'TaskList',
+  title: 'PureTaskListComponent',
 } as Meta;
 
-const Template: Story<TaskListComponent> = args => ({
+const Template: Story<PureTaskListComponent> = args => ({
   props: {
     ...args,
     onPinTask: TaskStories.actionsData.onPinTask,
